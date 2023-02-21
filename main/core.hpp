@@ -3,6 +3,7 @@
 
 
 #include "gy273.hpp"
+#include "adxl345.hpp"
 #include "module.hpp"
 
 #define MAX_MODULES 3
@@ -15,7 +16,8 @@ public:
     void update();
 
 private: 
-   GY273 *m_GY273;
+   GY273    *m_GY273;
+   ADXL345  *m_ADXL345;
 };
 
 #endif

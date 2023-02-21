@@ -1,21 +1,20 @@
-#include "gy273.hpp"
+#include "adxl345.hpp"
 
 
-void GY273::init() {
-    debug_println("GY273 init");
-    i2c_init();
-    i2c_start();                    // Send start condition
-    i2c_write((m_Address << 1) | 0); // Send device address with write bit
-    i2c_write(0x02);                // Register Mode 
-    i2c_write(0x00);                // Disable Idle Mode
-    i2c_stop();                     // Send stop condition
+void ADXL345::init() {
+    debug_println("ADXL345 init");
+    // i2c_start();                    // Send start condition
+    // i2c_write((m_Address << 1) | 0); // Send device address with write bit
+    // i2c_write(0x04);                // LOW_POWER
+    // i2c_write(0x00);                // Disable Idle Mode
+    // i2c_stop();                     // Send stop condition
 }
 
-void GY273::update() {
+void ADXL345::update() {
 
     i2c_start();                    // Send start condition
     i2c_write((m_Address << 1) | 0); // Send device address with write bit
-    i2c_write(0x03);                // Send register address to read from (e.g. 0x00 for X-axis MSB)
+    i2c_write(0x03);                // 0x32
     i2c_stop();                     // Send stop condition
 
     i2c_start();                    // Send start condition
@@ -38,9 +37,8 @@ void GY273::update() {
     debug_print(m_Y);
     debug_print(", ");
     debug_print(m_Z);
-    debug_println(" <--- GY 273");
+    debug_println(" <--- ADXL 345");
 
-    // debug_println(m_X);
     /**
      * Enter sleep mode ???
      */
