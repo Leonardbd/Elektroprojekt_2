@@ -24,3 +24,5 @@
 
 # Debug files
 *.dSYM/
+
+.vscode/arduino.json

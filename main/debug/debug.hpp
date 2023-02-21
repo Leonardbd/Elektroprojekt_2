@@ -5,7 +5,7 @@
 #include "Arduino.h"
 
 #if DEBUG
-  #define debug_init(x) Serial.begin(x); Serial.println("\n ---- Running Debug Mode (V2) ----");  while (!Serial) { delay(10); }
+  #define debug_init(x) Serial.begin(x); Serial.println("\n ---- Running Debug Mode (V3) ----");  while (!Serial) { delay(10); }
   #define debug_print(...) Serial.print(__VA_ARGS__)
   #define debug_println(...) Serial.println(__VA_ARGS__)
 #else
@@ -16,10 +16,3 @@
 
 #endif
 
-
-  // inline void debug_init(u32 baud) {
-  //     Serial.begin(9600);
-  //     Serial.println("\n ---- Running Debug Mode (V2) ----");
-  //     while (!Serial)
-  //       delay(10);
-  // }
